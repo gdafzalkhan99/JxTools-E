@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_corner_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/service_title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_40"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_5"
+            android:gravity="center"
+            android:text="@string/fix_tips_title"
+            android:textColor="@color/color_title"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:lineSpacingExtra="@dimen/dp_3"
+            android:text="@string/fix_tips_1"
+            android:textColor="@color/color_content"
+            android:textSize="@dimen/sp_13" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:lineSpacingExtra="@dimen/dp_5"
+            android:text="@string/fix_tips_3"
+            android:textColor="@color/color_content"
+            android:textSize="@dimen/sp_13" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/fix_tips_4"
+            android:textColor="@color/color_content"
+            android:textSize="@dimen/sp_13" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/fix_tips_5"
+            android:textColor="@color/color_content"
+            android:textSize="@dimen/sp_13" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/fix_tips_6"
+            android:textColor="@color/color_content"
+            android:textSize="@dimen/sp_13" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:lineSpacingExtra="@dimen/dp_2"
+            android:text="@string/fix_tips_2"
+            android:textColor="@color/color_content"
+            android:textSize="@dimen/sp_13" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/color_cross_line" />
+
+
+        <TextView
+            android:id="@+id/ok"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp_30"
+            android:layout_marginEnd="@dimen/dp_30"
+            android:gravity="center"
+            android:text="@string/ok"
+            android:textColor="@color/color_content"
+            android:textSize="@dimen/sp_14" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

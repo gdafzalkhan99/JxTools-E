@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.picfix.tools">
+
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!--穿山甲必要权限，解决安全风险漏洞，发送和注册广播事件需要调用带有传递权限的接口-->
+    <permission
+        android:name="${applicationId}.openadsdk.permission.TT_PANGOLIN"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="${applicationId}.openadsdk.permission.TT_PANGOLIN" />
+
+    <!--解决android 11无法拉起微信支付的问题-->
+    <queries>
+        <package android:name="com.tencent.mm" />
+    </queries>
+
+    <application
+        android:name="com.picfix.tools.BaseApp"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:preserveLegacyExternalStorage="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <activity
+            android:name="com.picfix.tools.view.activity.SplashActivity"
+            android:launchMode="standard"
+            android:theme="@style/FullScreenAppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.picfix.tools.view.base.BaseActivity" />
+        <activity
+            android:name="com.picfix.tools.view.activity.MainActivity"
+            android:alwaysRetainTaskState="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.CustomerServiceActivity"
+            android:alwaysRetainTaskState="true"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.MineActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PicsRecoveryActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name="com.picfix.tools.view.activity.DocRecoveryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.VideoRecoveryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.VideoDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.VoiceRecoveryActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.FixPayActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.HandFixPayActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.RecoveryPayActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PaySuccessActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PicDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.AgreementActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.FileReaderActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.FeedbackActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.TutorialActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.VoiceDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.DocDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoFaceMergeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.QuestionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.ImageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoAgeTransActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoGenderTransActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoMorphActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoColourActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoContrastActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoDefinitionActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoResizeActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoWatermarkActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoCartoonActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoTransStyleActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoDefoggingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoStretchActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoZipActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoFormatTransActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.PhotoMattingActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.picfix.tools.view.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name="com.picfix.tools.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+
+        <service
+            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+            android:label="dexopt"
+            android:process=":dexopt" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
+            android:authorities="${applicationId}.TTFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
+            android:authorities="${applicationId}.TTMultiProvider"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

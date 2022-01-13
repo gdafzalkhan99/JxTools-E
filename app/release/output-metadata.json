@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.picfix.tools",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 5940,
+      "versionName": "5.9.40",
+      "outputFile": "app-release.apk"
+    }
+  ],
+  "elementType": "File"
+}
