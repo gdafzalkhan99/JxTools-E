@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.provider.MediaStore
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.picfix.tools.R
@@ -12,12 +13,18 @@ import com.picfix.tools.config.Constant
 import com.picfix.tools.controller.ImageManager
 import com.picfix.tools.utils.ToastUtil
 import com.picfix.tools.view.base.BaseActivity
+import com.picfix.tools.view.views.MoveViewByViewDragHelper
 
 class PhotoDefinitionActivity : BaseActivity() {
     private lateinit var back: ImageView
     private lateinit var bigPic: ImageView
+    private lateinit var bigPicBefore: ImageView
     private lateinit var firstPic: ImageView
     private lateinit var secondPic: ImageView
+    private lateinit var dynamicLayout: FrameLayout
+    private lateinit var pointer: MoveViewByViewDragHelper
+    private lateinit var firstLayout: FrameLayout
+    private lateinit var secondLayout: FrameLayout
     private lateinit var camera: Button
     private lateinit var album: Button
     private var mList = arrayListOf<Bitmap>()
@@ -34,6 +41,11 @@ class PhotoDefinitionActivity : BaseActivity() {
         bigPic = findViewById(R.id.big_pic)
         firstPic = findViewById(R.id.first_pic)
         secondPic = findViewById(R.id.second_pic)
+        bigPicBefore = findViewById(R.id.big_pic_before)
+        firstLayout = findViewById(R.id.before_first_check)
+        secondLayout = findViewById(R.id.before_second_check)
+        dynamicLayout = findViewById(R.id.dynamic_layout)
+        pointer = findViewById(R.id.point_move)
 
         back.setOnClickListener { finish() }
 
@@ -48,13 +60,44 @@ class PhotoDefinitionActivity : BaseActivity() {
     }
 
     override fun initData() {
+        choosePic(0)
+    }
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            val width = bigPic.width
+            val height = bigPic.height
+
+            val layoutParam = bigPicBefore.layoutParams
+            layoutParam.width = width
+            layoutParam.height = height
+            bigPicBefore.layoutParams = layoutParam
+
+            val dynamicLayoutParam = dynamicLayout.layoutParams
+            dynamicLayoutParam.width = width / 2
+            dynamicLayoutParam.height = height
+            dynamicLayout.layoutParams = dynamicLayoutParam
+
+            pointer.setLayout(dynamicLayout, width / 2)
+        }
 
     }
 
     private fun choosePic(index: Int) {
         when (index) {
-            0 -> Glide.with(this).load(R.drawable.iv_definition_after_1).into(bigPic)
-            1 -> Glide.with(this).load(R.drawable.iv_definition_after_2).into(bigPic)
+            0 -> {
+                firstLayout.setBackgroundResource(R.drawable.shape_rectangle_orange)
+                secondLayout.setBackgroundResource(R.drawable.shape_corner_white)
+                bigPic.setImageResource(R.drawable.iv_definition_after_1)
+                bigPicBefore.setImageResource(R.drawable.iv_definition_before_1)
+            }
+            1 -> {
+                firstLayout.setBackgroundResource(R.drawable.shape_corner_white)
+                secondLayout.setBackgroundResource(R.drawable.shape_rectangle_orange)
+                bigPic.setImageResource(R.drawable.iv_definition_after_2)
+                bigPicBefore.setImageResource(R.drawable.iv_definition_before_2)
+            }
         }
     }
 

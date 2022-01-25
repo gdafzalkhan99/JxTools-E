@@ -433,7 +433,7 @@ public class AppUtil {
      * @return channelId
      */
     public static String getChannelId() {
-        if (Constant.OCPC) {
+        if (!Constant.OCPC) {
             return Constant.CHANNEL_ID;
         }
 

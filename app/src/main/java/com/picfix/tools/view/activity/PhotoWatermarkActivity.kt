@@ -15,6 +15,7 @@ import com.picfix.tools.controller.ImageManager
 import com.picfix.tools.utils.JLog
 import com.picfix.tools.utils.ToastUtil
 import com.picfix.tools.view.base.BaseActivity
+import com.picfix.tools.view.views.MoveViewByViewDragHelper
 import com.picfix.tools.view.views.TestView
 
 
@@ -24,10 +25,12 @@ class PhotoWatermarkActivity : BaseActivity() {
     private lateinit var bigPicBefore: ImageView
     private lateinit var firstPic: ImageView
     private lateinit var secondPic: ImageView
-    private lateinit var pointer: TestView
     private lateinit var camera: Button
     private lateinit var album: Button
     private lateinit var dynamicLayout: FrameLayout
+    private lateinit var pointer: MoveViewByViewDragHelper
+    private lateinit var firstLayout: FrameLayout
+    private lateinit var secondLayout: FrameLayout
     private var mList = arrayListOf<Bitmap>()
     private var uploadList = arrayListOf<Uri>()
     private var value = ""
@@ -46,6 +49,9 @@ class PhotoWatermarkActivity : BaseActivity() {
         dynamicLayout = findViewById(R.id.dynamic_layout)
         pointer = findViewById(R.id.point_move)
 
+        firstLayout = findViewById(R.id.before_first_check)
+        secondLayout = findViewById(R.id.before_second_check)
+
         back.setOnClickListener { finish() }
 
         camera = findViewById(R.id.open_camera)
@@ -59,23 +65,26 @@ class PhotoWatermarkActivity : BaseActivity() {
     }
 
     override fun initData() {
-
+        choosePic(0)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) {
             val width = bigPic.width
+            val height = bigPic.height
 
             val layoutParam = bigPicBefore.layoutParams
             layoutParam.width = width
+            layoutParam.height = height
             bigPicBefore.layoutParams = layoutParam
 
             val dynamicLayoutParam = dynamicLayout.layoutParams
             dynamicLayoutParam.width = width / 2
+            dynamicLayoutParam.height = height
             dynamicLayout.layoutParams = dynamicLayoutParam
 
-            pointer.setLayout(dynamicLayout, width)
+            pointer.setLayout(dynamicLayout, width / 2)
         }
 
     }
@@ -83,12 +92,16 @@ class PhotoWatermarkActivity : BaseActivity() {
     private fun choosePic(index: Int) {
         when (index) {
             0 -> {
-                Glide.with(this).load(R.drawable.iv_watermark_after_1).into(bigPic)
-                Glide.with(this).load(R.drawable.iv_watermark_before_1).into(bigPicBefore)
+                firstLayout.setBackgroundResource(R.drawable.shape_rectangle_orange)
+                secondLayout.setBackgroundResource(R.drawable.shape_corner_white)
+                bigPic.setImageResource(R.drawable.iv_watermark_after_1)
+                bigPicBefore.setImageResource(R.drawable.iv_watermark_before_1)
             }
             1 -> {
-                Glide.with(this).load(R.drawable.iv_watermark_after_2).into(bigPic)
-                Glide.with(this).load(R.drawable.iv_watermark_before_2).into(bigPicBefore)
+                firstLayout.setBackgroundResource(R.drawable.shape_corner_white)
+                secondLayout.setBackgroundResource(R.drawable.shape_rectangle_orange)
+                bigPic.setImageResource(R.drawable.iv_watermark_after_2)
+                bigPicBefore.setImageResource(R.drawable.iv_watermark_before_2)
             }
         }
     }

@@ -5,8 +5,8 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.provider.MediaStore
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.picfix.tools.R
 import com.picfix.tools.config.Constant
 import com.picfix.tools.controller.ImageManager
@@ -17,6 +17,7 @@ import com.picfix.tools.view.base.BaseActivity
 class PhotoResizeActivity : BaseActivity() {
     private lateinit var back: ImageView
     private lateinit var bigPic: ImageView
+    private lateinit var littlePic: ImageView
     private lateinit var firstPic: ImageView
     private lateinit var secondPic: ImageView
     private lateinit var camera: Button
@@ -25,6 +26,9 @@ class PhotoResizeActivity : BaseActivity() {
     private var uploadList = arrayListOf<Uri>()
     private var value = ""
     private var mCameraUri: Uri? = null
+
+    private lateinit var firstLayout: FrameLayout
+    private lateinit var secondLayout: FrameLayout
 
     override fun setLayout(): Int {
         return R.layout.a_photo_resize
@@ -35,6 +39,9 @@ class PhotoResizeActivity : BaseActivity() {
         bigPic = findViewById(R.id.big_pic)
         firstPic = findViewById(R.id.first_pic)
         secondPic = findViewById(R.id.second_pic)
+        littlePic = findViewById(R.id.little_pic)
+        firstLayout = findViewById(R.id.before_first_check)
+        secondLayout = findViewById(R.id.before_second_check)
 
         back.setOnClickListener { finish() }
 
@@ -54,8 +61,18 @@ class PhotoResizeActivity : BaseActivity() {
 
     private fun choosePic(index: Int) {
         when (index) {
-            0 -> Glide.with(this).load(R.drawable.iv_resize_1).into(bigPic)
-            1 -> Glide.with(this).load(R.drawable.iv_resize_2).into(bigPic)
+            0 -> {
+                firstLayout.setBackgroundResource(R.drawable.shape_rectangle_orange)
+                secondLayout.setBackgroundResource(R.drawable.shape_corner_white)
+                bigPic.setImageResource(R.drawable.iv_resize_1)
+                littlePic.setImageResource(R.drawable.iv_resize_1)
+            }
+            1 -> {
+                firstLayout.setBackgroundResource(R.drawable.shape_corner_white)
+                secondLayout.setBackgroundResource(R.drawable.shape_rectangle_orange)
+                bigPic.setImageResource(R.drawable.iv_resize_2)
+                littlePic.setImageResource(R.drawable.iv_resize_2)
+            }
         }
     }
 
