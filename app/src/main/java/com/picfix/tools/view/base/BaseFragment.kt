@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.baidu.mobads.action.BaiduAction
-import com.baidu.mobads.action.PrivacyStatus
 import com.bytedance.sdk.openadsdk.TTAdSdk
 import com.picfix.tools.callback.Callback
 import com.picfix.tools.config.Constant
@@ -17,7 +15,6 @@ import com.picfix.tools.http.response.ResponseTransformer
 import com.picfix.tools.http.schedulers.SchedulerProvider
 import com.picfix.tools.utils.LivePermissions
 import com.picfix.tools.utils.PermissionResult
-import com.picfix.tools.utils.RomUtil
 import com.picfix.tools.utils.ToastUtil
 import com.picfix.tools.view.views.AuthDialog
 import com.tencent.mmkv.MMKV
@@ -85,9 +82,6 @@ abstract class BaseFragment : Fragment(), CoroutineScope by MainScope(), View.On
             when (it) {
                 is PermissionResult.Grant -> {
                     //权限允许
-//                    if (!RomUtil.isOppo() && Constant.OCPC) {
-//                        BaiduAction.setPrivacyStatus(PrivacyStatus.AGREE)
-//                    }
                     method()
                     mmkv?.encode("permission_deny", 0L)
 

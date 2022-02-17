@@ -10,9 +10,6 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.content.res.ResourcesCompat
-import com.baidu.mobads.action.ActionParam
-import com.baidu.mobads.action.ActionType
-import com.baidu.mobads.action.BaiduAction
 import com.tencent.mmkv.MMKV
 import com.picfix.tools.R
 import com.picfix.tools.bean.FileBean
@@ -316,13 +313,6 @@ class RecoveryPayActivity : BaseActivity() {
                 override fun success() {
                     launch(Dispatchers.Main) {
 
-                        //pay upload
-                        if (!RomUtil.isOppo() && Constant.OCPC) {
-                            val actionParam = JSONObject()
-                            actionParam.put(ActionParam.Key.PURCHASE_MONEY, mPrice * 100)
-                            BaiduAction.logAction(ActionType.PURCHASE, actionParam)
-                        }
-
                         //返回支付结果
                         ToastUtil.showShort(c, "支付成功")
 
@@ -378,13 +368,6 @@ class RecoveryPayActivity : BaseActivity() {
 
                     when (it.status) {
                         "1" -> {
-
-                            //pay upload
-                            if (!RomUtil.isOppo() && Constant.OCPC) {
-                                val actionParam = JSONObject()
-                                actionParam.put(ActionParam.Key.PURCHASE_MONEY, mPrice * 100)
-                                BaiduAction.logAction(ActionType.PURCHASE, actionParam)
-                            }
 
 //                            if (currentServiceId == secondServiceId) {
 //                                toPaySuccessPage()

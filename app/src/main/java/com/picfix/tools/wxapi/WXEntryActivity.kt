@@ -3,11 +3,7 @@ package com.picfix.tools.wxapi
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import com.baidu.mobads.action.ActionParam
-import com.baidu.mobads.action.ActionType
-import com.baidu.mobads.action.BaiduAction
 import com.picfix.tools.R
-import com.picfix.tools.bean.UserInfo
 import com.picfix.tools.config.Constant
 import com.picfix.tools.controller.IMManager
 import com.picfix.tools.controller.LogReportManager
@@ -17,7 +13,6 @@ import com.picfix.tools.http.response.ResponseTransformer
 import com.picfix.tools.http.schedulers.SchedulerProvider
 import com.picfix.tools.utils.AppUtil
 import com.picfix.tools.utils.JLog
-import com.picfix.tools.utils.RomUtil
 import com.picfix.tools.utils.ToastUtil
 import com.tencent.mm.opensdk.constants.ConstantsAPI
 import com.tencent.mm.opensdk.modelbase.BaseReq
@@ -30,7 +25,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import org.json.JSONObject
 
 class WXEntryActivity : Activity(), CoroutineScope by MainScope(), IWXAPIEventHandler {
     private var api: IWXAPI? = null
@@ -135,15 +129,6 @@ class WXEntryActivity : Activity(), CoroutineScope by MainScope(), IWXAPIEventHa
                                 }
                             }
                         }
-                    }
-
-                    //active upload
-                    if (!RomUtil.isOppo() && Constant.OCPC) {
-                        BaiduAction.logAction(ActionType.REGISTER)
-
-//                        val actionParam = JSONObject()
-//                        actionParam.put(ActionParam.Key.PURCHASE_MONEY, 100)
-//                        BaiduAction.logAction(ActionType.PURCHASE, actionParam)
                     }
 
                     //IM register

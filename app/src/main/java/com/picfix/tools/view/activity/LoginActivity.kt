@@ -11,8 +11,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.fragment.app.FragmentActivity
-import com.baidu.mobads.action.BaiduAction
-import com.baidu.mobads.action.PrivacyStatus
 import com.picfix.tools.R
 import com.picfix.tools.config.Constant
 import com.picfix.tools.utils.*
@@ -105,9 +103,6 @@ class LoginActivity : FragmentActivity() {
             when (it) {
                 is PermissionResult.Grant -> {
                     //权限允许
-                    if (!RomUtil.isOppo() && Constant.OCPC) {
-                        BaiduAction.setPrivacyStatus(PrivacyStatus.AGREE)
-                    }
                     method()
                     mmkv?.encode("read_phone_permission_deny", 0L)
                 }

@@ -11,9 +11,6 @@ import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.baidu.mobads.action.ActionParam
-import com.baidu.mobads.action.ActionType
-import com.baidu.mobads.action.BaiduAction
 import com.bumptech.glide.Glide
 import com.picfix.tools.R
 import com.picfix.tools.adapter.DataAdapter
@@ -408,13 +405,6 @@ class FixPayActivity : BaseActivity() {
                 override fun success() {
                     launch(Dispatchers.Main) {
 
-                        //pay upload
-                        if (!RomUtil.isOppo() && Constant.OCPC) {
-                            val actionParam = JSONObject()
-                            actionParam.put(ActionParam.Key.PURCHASE_MONEY, mPrice * 100)
-                            BaiduAction.logAction(ActionType.PURCHASE, actionParam)
-                        }
-
                         if (AppUtil.getChannelId() == Constant.CHANNEL_OPPO) {
                             launch(Dispatchers.IO) {
                                 ImageManager.reportToOPPO(this@FixPayActivity, System.currentTimeMillis(), 7, (mPrice * 100).toInt())
@@ -471,13 +461,6 @@ class FixPayActivity : BaseActivity() {
 
                     when (it.status) {
                         "1" -> {
-
-                            //pay upload
-                            if (!RomUtil.isOppo() && Constant.OCPC) {
-                                val actionParam = JSONObject()
-                                actionParam.put(ActionParam.Key.PURCHASE_MONEY, mPrice * 100)
-                                BaiduAction.logAction(ActionType.PURCHASE, actionParam)
-                            }
 
                             if (AppUtil.getChannelId() == Constant.CHANNEL_OPPO) {
                                 launch(Dispatchers.IO) {

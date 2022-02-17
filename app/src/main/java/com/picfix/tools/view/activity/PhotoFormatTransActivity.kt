@@ -1,5 +1,6 @@
 package com.picfix.tools.view.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -134,6 +135,7 @@ class PhotoFormatTransActivity : BaseActivity() {
         startActivityForResult(intent, 0x1001)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun checkFileSize(uri: Uri) {
         val length = contentResolver.openFileDescriptor(uri, "r")?.statSize ?: 0
         if (length > 5 * 1024 * 1024) {

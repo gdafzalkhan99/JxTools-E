@@ -3,7 +3,6 @@ package com.picfix.tools
 import android.app.Application
 import android.content.res.Configuration
 import android.content.res.Resources
-import com.baidu.mobads.action.BaiduAction
 import com.bytedance.sdk.openadsdk.TTAdConfig
 import com.bytedance.sdk.openadsdk.TTAdConstant
 import com.bytedance.sdk.openadsdk.TTAdSdk
@@ -27,7 +26,6 @@ class BaseApp : Application() {
         initRom()
         initHttpRequest()
         initMMKV()
-        initBaiduAction()
         initIM()
         initBugly()
         initTTAd()
@@ -64,14 +62,6 @@ class BaseApp : Application() {
         MMKV.initialize(this)
     }
 
-    private fun initBaiduAction() {
-        //OPPO用户不激活OCPC
-        if (!RomUtil.isOppo() && Constant.OCPC) {
-            BaiduAction.init(this, Constant.USER_ACTION_SET_ID, Constant.APP_SECRET_KEY)
-            BaiduAction.setActivateInterval(this, 7)
-            BaiduAction.setPrintLog(false)
-        }
-    }
 
     private fun initIM() {
         val option = ChatClient.Options()

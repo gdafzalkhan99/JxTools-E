@@ -13,9 +13,6 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.baidu.mobads.action.ActionParam
-import com.baidu.mobads.action.ActionType
-import com.baidu.mobads.action.BaiduAction
 import com.bumptech.glide.Glide
 import com.picfix.tools.R
 import com.picfix.tools.adapter.DataAdapter
@@ -350,13 +347,6 @@ class HandFixPayActivity : BaseActivity() {
                 override fun success() {
                     launch(Dispatchers.Main) {
 
-                        //pay upload
-                        if (!RomUtil.isOppo() && Constant.OCPC) {
-                            val actionParam = JSONObject()
-                            actionParam.put(ActionParam.Key.PURCHASE_MONEY, mPrice * 100)
-                            BaiduAction.logAction(ActionType.PURCHASE, actionParam)
-                        }
-
                         //返回支付结果
                         ToastUtil.showShort(c, "支付成功")
 
@@ -414,13 +404,6 @@ class HandFixPayActivity : BaseActivity() {
 
                     when (it.status) {
                         "1" -> {
-
-                            //pay upload
-                            if (!RomUtil.isOppo() && Constant.OCPC) {
-                                val actionParam = JSONObject()
-                                actionParam.put(ActionParam.Key.PURCHASE_MONEY, mPrice * 100)
-                                BaiduAction.logAction(ActionType.PURCHASE, actionParam)
-                            }
 
                             openPaySuccessDialog()
 

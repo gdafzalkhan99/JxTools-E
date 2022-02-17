@@ -6,7 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
-import com.baidu.mobads.action.BaiduAction
 import com.picfix.tools.config.Constant
 import com.picfix.tools.utils.PermissionResult
 import com.picfix.tools.utils.RomUtil
@@ -69,10 +68,6 @@ internal class FLive : Fragment() {
                 }
             }
 
-            // 授权结果回传
-            if (!RomUtil.isOppo() && Constant.OCPC) {
-                BaiduAction.onRequestPermissionsResult(requestCode, permissions, grantResults)
-            }
         }
     }
 
