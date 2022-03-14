@@ -1,6 +1,5 @@
 package com.picfix.tools.view.activity
 
-import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -13,8 +12,8 @@ import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.fragment.app.FragmentActivity
 import com.picfix.tools.R
 import com.picfix.tools.config.Constant
-import com.picfix.tools.utils.*
-import com.picfix.tools.view.views.ActivityDialog
+import com.picfix.tools.utils.AppUtil
+import com.picfix.tools.utils.ToastUtil
 import com.tencent.mm.opensdk.modelmsg.SendAuth
 import com.tencent.mmkv.MMKV
 
@@ -24,7 +23,6 @@ class LoginActivity : FragmentActivity() {
     private lateinit var privacyAgreement: TextView
     private lateinit var login: FrameLayout
     private lateinit var agree: AppCompatCheckBox
-    private var mmkv = MMKV.defaultMMKV()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,13 +56,7 @@ class LoginActivity : FragmentActivity() {
 
     private fun login() {
         if (agree.isChecked) {
-            if (Constant.OCPC) {
-                requestPhonePermission {
-                    openWechat()
-                }
-            } else {
-                openWechat()
-            }
+            openWechat()
         }
     }
 
@@ -81,51 +73,10 @@ class LoginActivity : FragmentActivity() {
         }
     }
 
+
     private fun toAgreementPage() {
         val intent = Intent(this, AgreementActivity::class.java)
         startActivity(intent)
-    }
-
-    private fun requestPhonePermission(method: () -> Unit) {
-
-        val mmkv = MMKV.defaultMMKV()
-        val key = mmkv?.decodeLong("read_phone_permission_deny")
-        if (key != null && key != 0L) {
-            if (System.currentTimeMillis() - key < 3600 * 1000) {
-                ToastUtil.showShort(this, "请打开必要的权限申请保证功能的正常使用")
-                return
-            }
-        }
-
-        LivePermissions(this).request(
-            Manifest.permission.READ_PHONE_STATE
-        ).observe(this, {
-            when (it) {
-                is PermissionResult.Grant -> {
-                    //权限允许
-                    method()
-                    mmkv?.encode("read_phone_permission_deny", 0L)
-                }
-
-                is PermissionResult.Rationale -> {
-                    //权限拒绝
-                    ToastUtil.showShort(this, "请打开必要的权限申请保证功能的正常使用")
-                    it.permissions.forEach { s ->
-                        println("Rationale:${s}")//被拒绝的权限
-                        mmkv?.encode("read_phone_permission_deny", System.currentTimeMillis())
-                    }
-                }
-
-                is PermissionResult.Deny -> {
-                    ToastUtil.showShort(this, "请打开必要的权限申请保证功能的正常使用")
-                    //权限拒绝，且勾选了不再询问
-                    it.permissions.forEach { s ->
-                        println("deny:${s}")//被拒绝的权限
-                        mmkv?.encode("read_phone_permission_deny", System.currentTimeMillis())
-                    }
-                }
-            }
-        })
     }
 
 }

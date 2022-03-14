@@ -29,7 +29,6 @@ import com.picfix.tools.http.response.ResponseTransformer
 import com.picfix.tools.http.schedulers.SchedulerProvider
 import com.picfix.tools.utils.AppUtil
 import com.picfix.tools.utils.JLog
-import com.picfix.tools.utils.RomUtil
 import com.picfix.tools.utils.ToastUtil
 import com.picfix.tools.view.base.BaseActivity
 import com.picfix.tools.view.views.AutoTextView
@@ -37,9 +36,8 @@ import com.picfix.tools.view.views.PaySuccessDialog
 import com.picfix.tools.view.views.QuitDialog
 import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.heart_small.view.*
-import kotlinx.coroutines.*
-import org.json.JSONObject
-import java.util.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class FixPayActivity : BaseActivity() {
     private lateinit var back: ImageView

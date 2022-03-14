@@ -284,7 +284,7 @@
     <string name="desc_8">可将任务头像转化成卡通画，铅笔画，彩色铅笔画，哥特式油画，彩色糖块优化，呐喊油画，奇异油画，薰衣草油画等9种风格</string>
     <string name="desc_9">对浓雾天气下拍摄的照片进行去雾处理，还原更清晰的图像</string>
     <string name="desc_10">自动识别过度拉伸的图片，将图片恢复成正常的比例</string>
-    <string name="desc_11">调整过暗或者过量图像的对比度，使图像更加鲜明</string>
+    <string name="desc_11">调整过暗或者过亮图像的对比度，使图像更加鲜明</string>
     <string name="desc_12">图片文件类型支持PNG/JPG/JPEG/BMP格式，图片大小不超过3MB，图片长宽乘积不超过2000px*2000px</string>
     <string name="desc_13">智能识别黑白图像内容并填充色彩，使黑白图像变得鲜活。</string>
     <string name="desc_14">图片文件类型支持PNG,JPG,JPEG,BMP格式，图片大小不超过3MB，图片最短边至少100px，最长边最大2000px，长宽比例在3：1以内</string>

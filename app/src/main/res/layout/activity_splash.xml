@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="@dimen/dp_80"
+        android:layout_marginBottom="@dimen/dp_60"
         android:scaleType="fitCenter"
         android:src="@drawable/splash_title" />
 
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_marginTop="@dimen/dp_10"
-        android:layout_marginBottom="@dimen/dp_55"
+        android:layout_marginBottom="@dimen/dp_40"
         android:text="百度智能云修复技术"
         android:textColor="@color/color_dark_grey"
         android:textSize="13sp" />
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_marginTop="@dimen/dp_10"
-        android:layout_marginBottom="@dimen/dp_35"
+        android:layout_marginBottom="@dimen/dp_20"
         android:text="© 2021 ql-recovery.com"
         android:textColor="@color/color_blue"
         android:textSize="13sp" />
@@ -64,5 +64,11 @@
         android:textSize="28sp"
         android:visibility="gone" />
 
+    <FrameLayout
+        android:id="@+id/splash_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dp_100"
+        android:visibility="visible" />
 
 </FrameLayout>

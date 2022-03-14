@@ -78,7 +78,7 @@ abstract class BaseFragment : Fragment(), CoroutineScope by MainScope(), View.On
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.READ_PHONE_STATE
-        ).observe(this@BaseFragment, {
+        ).observe(this@BaseFragment) {
             when (it) {
                 is PermissionResult.Grant -> {
                     //权限允许
@@ -106,20 +106,6 @@ abstract class BaseFragment : Fragment(), CoroutineScope by MainScope(), View.On
                     }
                 }
             }
-        })
-    }
-
-    private fun getAccessToken() {
-        if (Constant.QUEST_TOKEN != "questToken") return
-        launch(Dispatchers.IO) {
-            TokenLoader.getToken(activity!!)
-                .compose(ResponseTransformer.handleResult())
-                .compose(SchedulerProvider.getInstance().applySchedulers())
-                .subscribe({
-                    Constant.QUEST_TOKEN = it.questToken
-                }, {
-                    ToastUtil.show(activity!!, "获取验证失败，请检查网络")
-                })
         }
     }
 

@@ -58,8 +58,8 @@ open class FFix : BaseFragment() {
     override fun initData() {
         mainPics.clear()
         mainPics.add(Resource("cartoon", R.drawable.home_case_3, "人像动漫画"))
-        mainPics.add(Resource("face_merge", R.drawable.home_case_5, "人脸融合"))
-        mainPics.add(Resource("matting", R.drawable.home_more5, "一键抠图"))
+//        mainPics.add(Resource("face_merge", R.drawable.home_case_5, "人脸融合"))
+        mainPics.add(Resource("matting", R.drawable.home_more5, "一键去背景"))
         mainPics.add(Resource("colour", R.drawable.home_case_2, "照片上色"))
         mainPics.add(Resource("format_trans", R.drawable.home_more8, "格式转换"))
         mainPics.add(Resource("zip", R.drawable.home_more9, "图片压缩"))

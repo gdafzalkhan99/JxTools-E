@@ -19,7 +19,7 @@ public class Constant {
     public static final String ROM_VIVO = "VIVO";
     public static final String ROM_OTHER = "OTHER";
     public static String CLIENT_TOKEN = "";
-    public static String QUEST_TOKEN = "questToken";
+    public static String QUEST_TOKEN = "";
     public static String USER_NAME = "";
     public static String USER_ID = "";
     public static Boolean ScanStop = false;
@@ -37,9 +37,13 @@ public class Constant {
     //百度推广A007 "d38c3b1164c26b76"  07
     //百度应用商店A007 "b3289bb361849381" 07s
     //萌内朵003  60594f8cd5f0b473
-    public static Boolean OCPC = false;
+    //UC cafd10e2d4c8376f
+    //头条 1a36ecfcda18e730
+    //360 b7f988d9946e9209
+    //搜狗 a6f02350cff48f50
+    public static Boolean OCPC = true;
     public static Boolean AD_OPENNING = true;
-    public static String CHANNEL_ID = "60594f8cd5f0b473";
+    public static String CHANNEL_ID = "a6f02350cff48f50";
     public static String CHANNEL_HUAWEI = "539cf1fbda8b8191";
     public static String CHANNEL_HUAWEI_NEW = "5ccd4758a1115ff5";
     public static String CHANNEL_OPPO = "0f62d749fcd4d65f";

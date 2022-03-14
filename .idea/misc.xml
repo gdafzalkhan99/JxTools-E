@@ -18,6 +18,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/drawable/shape_corner_blue.xml" value="0.4786458333333333" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/drawable/shape_corner_light_orange.xml" value="0.48385416666666664" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/drawable/shape_corner_orange.xml" value="0.48385416666666664" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/drawable/shape_corner_white.xml" value="0.349" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/drawable/shape_corner_white_shadow.xml" value="0.4828125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/drawable/shape_half_corner_white.xml" value="0.4828125" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/drawable/shape_left_corner_blue.xml" value="0.4828125" />
@@ -36,7 +37,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_fix_pay.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_hand_fix_pay.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_home.xml" value="0.4635416666666667" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_image.xml" value="0.4528302049755674" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_image.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_login.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_mine.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_photo_age_trans.xml" value="0.46979166666666666" />
@@ -67,7 +68,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_wechat_pics_recovery.xml" value="0.5333333333333333" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_wechat_recovery.xml" value="0.4625" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/a_wechat_voice_recovery.xml" value="0.4625" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/activity_splash.xml" value="0.45454545454545453" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/activity_splash.xml" value="0.33" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/d_backup_files.xml" value="0.33" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/d_fix_tips.xml" value="0.6067924746672604" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/d_huawei_pwd.xml" value="0.4625" />
@@ -77,8 +78,8 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/d_save_image.xml" value="0.46979166666666666" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/d_service_auth.xml" value="0.4528302049755674" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/f_doc.xml" value="0.5333333333333333" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/f_fix.xml" value="0.45454545454545453" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/f_home.xml" value="0.33" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/f_fix.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/f_home.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/heart_small.xml" value="0.4625" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/item_fix_pic.xml" value="0.4625" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/JxTools-E/app/src/main/res/layout/item_heart.xml" value="0.45454545454545453" />

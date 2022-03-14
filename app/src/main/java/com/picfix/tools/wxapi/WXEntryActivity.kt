@@ -92,6 +92,11 @@ class WXEntryActivity : Activity(), CoroutineScope by MainScope(), IWXAPIEventHa
     }
 
     private fun getAccessToken(code: String) {
+        if (Constant.QUEST_TOKEN != "") {
+            getUserInfo(code)
+            return
+        }
+
         launch(Dispatchers.IO) {
             TokenLoader.getToken(this@WXEntryActivity)
                 .compose(ResponseTransformer.handleResult())
@@ -132,7 +137,9 @@ class WXEntryActivity : Activity(), CoroutineScope by MainScope(), IWXAPIEventHa
                     }
 
                     //IM register
-                    IMManager.register(Constant.USER_ID, {}, {})
+                    launch(Dispatchers.IO) {
+                        IMManager.register(Constant.USER_ID, {}, {})
+                    }
 
                     //report
                     LogReportManager.logReport("登录", "登录成功", LogReportManager.LogType.LOGIN)
