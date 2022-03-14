@@ -92,10 +92,6 @@ class WXEntryActivity : Activity(), CoroutineScope by MainScope(), IWXAPIEventHa
     }
 
     private fun getAccessToken(code: String) {
-        if (Constant.QUEST_TOKEN != "") {
-            getUserInfo(code)
-            return
-        }
 
         launch(Dispatchers.IO) {
             TokenLoader.getToken(this@WXEntryActivity)

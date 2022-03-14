@@ -43,7 +43,7 @@ public class Constant {
     //搜狗 a6f02350cff48f50
     public static Boolean OCPC = true;
     public static Boolean AD_OPENNING = true;
-    public static String CHANNEL_ID = "a6f02350cff48f50";
+    public static String CHANNEL_ID = "1a36ecfcda18e730";
     public static String CHANNEL_HUAWEI = "539cf1fbda8b8191";
     public static String CHANNEL_HUAWEI_NEW = "5ccd4758a1115ff5";
     public static String CHANNEL_OPPO = "0f62d749fcd4d65f";
