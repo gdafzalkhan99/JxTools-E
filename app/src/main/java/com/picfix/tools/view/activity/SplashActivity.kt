@@ -109,7 +109,6 @@ class SplashActivity : BaseActivity() {
         }
     }
 
-
     private fun initWxApi() {
         Constant.api = WXAPIFactory.createWXAPI(this, Constant.TENCENT_APP_ID, false)
     }

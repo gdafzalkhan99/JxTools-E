@@ -25,6 +25,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+import kotlin.concurrent.thread
 
 class WXEntryActivity : Activity(), CoroutineScope by MainScope(), IWXAPIEventHandler {
     private var api: IWXAPI? = null
@@ -120,25 +121,25 @@ class WXEntryActivity : Activity(), CoroutineScope by MainScope(), IWXAPIEventHa
                     mmkv?.encode("userInfo", userinfo)
 
                     //activity
-                    when (AppUtil.getChannelId()) {
-                        Constant.CHANNEL_VIVO, Constant.CHANNEL_HUAWEI -> {
-                            val versionCode = AppUtil.getPackageVersionCode(this@WXEntryActivity, packageName)
-                            if (versionCode == Constant.APP_VERSION.toInt()) {
-                                val times = mmkv?.decodeString("activity_times")
-                                if (times == null) {
-                                    mmkv?.encode("activity_times", "true")
-                                }
-                            }
-                        }
-                    }
+//                    when (AppUtil.getChannelId()) {
+//                        Constant.CHANNEL_VIVO, Constant.CHANNEL_HUAWEI -> {
+//                            val versionCode = AppUtil.getPackageVersionCode(this@WXEntryActivity, packageName)
+//                            if (versionCode == Constant.APP_VERSION.toInt()) {
+//                                val times = mmkv?.decodeString("activity_times")
+//                                if (times == null) {
+//                                    mmkv?.encode("activity_times", "true")
+//                                }
+//                            }
+//                        }
+//                    }
 
                     //IM register
-                    launch(Dispatchers.IO) {
+                    thread {
                         IMManager.register(Constant.USER_ID, {}, {})
+//                        //report
+                        LogReportManager.logReport("登录", "登录成功", LogReportManager.LogType.LOGIN)
                     }
 
-                    //report
-                    LogReportManager.logReport("登录", "登录成功", LogReportManager.LogType.LOGIN)
 
                     ToastUtil.showShort(this@WXEntryActivity, "登录成功")
                     if (Constant.mHandler != null) {
@@ -148,6 +149,8 @@ class WXEntryActivity : Activity(), CoroutineScope by MainScope(), IWXAPIEventHa
                     if (Constant.mSecondHandler != null) {
                         Constant.mSecondHandler.sendEmptyMessage(0x1000)
                     }
+
+                    finish()
 
                 }, {
                     JLog.i("error = ${it.message}")

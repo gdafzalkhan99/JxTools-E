@@ -437,7 +437,7 @@ public class AppUtil {
             return Constant.CHANNEL_ID;
         }
 
-        String channelId = Constant.CHANNEL_HUAWEI;
+        String channelId = Constant.CHANNEL_ID;
         if (RomUtil.isEmui()) {
             channelId = Constant.CHANNEL_HUAWEI;
             return channelId;

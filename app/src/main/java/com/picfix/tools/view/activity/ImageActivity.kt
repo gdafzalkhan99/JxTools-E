@@ -195,17 +195,17 @@ class ImageActivity : BaseActivity() {
     }
 
     private fun initDialog() {
-        when (AppUtil.getChannelId()) {
-            Constant.CHANNEL_VIVO, Constant.CHANNEL_HUAWEI -> {
-                val versionCode = AppUtil.getPackageVersionCode(this, packageName)
-                if (versionCode == Constant.APP_VERSION.toInt()) {
-                    val times = MMKV.defaultMMKV()?.decodeString("activity_times")
-                    if (times == null || times == "true") {
-                        ActivityDialog(this).show()
-                    }
-                }
-            }
-        }
+//        when (AppUtil.getChannelId()) {
+//            Constant.CHANNEL_VIVO, Constant.CHANNEL_HUAWEI -> {
+//                val versionCode = AppUtil.getPackageVersionCode(this, packageName)
+//                if (versionCode == Constant.APP_VERSION.toInt()) {
+//                    val times = MMKV.defaultMMKV()?.decodeString("activity_times")
+//                    if (times == null || times == "true") {
+//                        ActivityDialog(this).show()
+//                    }
+//                }
+//            }
+//        }
     }
 
     private fun initGenderTrans() {
